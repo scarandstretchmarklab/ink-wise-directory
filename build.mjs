@@ -222,7 +222,7 @@ async function main() {
 
   fs.rmSync(OUT, { recursive: true, force: true });
   fs.mkdirSync(OUT, { recursive: true });
-  fs.copyFileSync('static/style.css', path.join(OUT, 'style.css'));
+  for (const f of fs.readdirSync('static')) fs.copyFileSync(path.join('static', f), path.join(OUT, f));
   fs.copyFileSync('static/app.js', path.join(OUT, 'app.js'));
   fs.copyFileSync('static/favicon.svg', path.join(OUT, 'favicon.svg'));
   const host = new URL(SITE_URL).hostname;
