@@ -311,7 +311,7 @@ async function main() {
 ${a.services.length ? `<h2 class="h2">Services</h2>${serviceIcons(a, true)}` : ''}
 ${a.about ? `<p class="about">${esc(a.about)}</p>` : ''}
 ${links ? `<div class="links">${links}</div>` : ''}
-${where ? `<div class="map"><iframe title="Map of ${esc(where)}" loading="lazy" src="https://maps.google.com/maps?q=${mapQ}&z=10&output=embed"></iframe></div>` : ''}
+${a.ll ? `<div class="map"><iframe title="Map of ${esc(where)}" loading="lazy" src="https://maps.google.com/maps?q=${a.ll.join(',')}&amp;z=11&amp;output=embed"></iframe></div>` : ''}
 <p class="back"><a href="${region ? '/' + region.slug + '/' : '/'}">← More artists${region ? ' in ' + esc(region.label) : ''}</a></p>
 </section>`;
     const title = `${a.name}${a.business && a.business !== a.name ? ' – ' + a.business : ''} | Paramedical Tattoo${a.city ? ' in ' + a.city + (a.state ? ', ' + a.state : '') : ''}`;
