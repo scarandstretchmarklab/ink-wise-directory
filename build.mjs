@@ -213,7 +213,7 @@ async function main() {
       name, business: get(r, 'business'), city, state, zip: z5 || '', country,
       stateName: country === 'United States' ? (US_STATES[state] || state) : state,
       services, instagram: normInstagram(get(r, 'instagram')), website: normUrl(get(r, 'website')),
-      booking: normUrl(get(r, 'booking')), phone: get(r, 'phone'), photo: normPhoto(get(r, 'photo')),
+      booking: normUrl(get(r, 'booking')), phone: /null/i.test(get(r, 'phone')) || !/\d{3}/.test(get(r, 'phone')) ? '' : get(r, 'phone'), photo: normPhoto(get(r, 'photo')),
       about: get(r, 'about').slice(0, 600), slug, ll,
     });
   }
